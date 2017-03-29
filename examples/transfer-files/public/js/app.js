@@ -136,7 +136,8 @@ function onDrop (event) {
     })
   }
 
-  files.map((file) => {
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i]
     readFileContents(file)
       .then((buffer) => {
         return node.files.add([{
@@ -151,7 +152,7 @@ function onDrop (event) {
           .join('<br>')
       })
       .catch(onError)
-  })
+  }
 }
 
 /*
